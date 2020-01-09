@@ -1,28 +1,37 @@
 fun main() {
-    printExtraLine("Classes/Calculator")
-    val calculator = Calculator()
-    val result = calculator.multiply(3, 5)
-    printExtraLine("Our result is: $result")
+    println("Properties & Fields/Calculator")
+    println()
+    val calculator = Calculator(7)
+    calculator.add(6)
+    calculator.multiply(8)
+    println()
+    println("Our result is: ${calculator.currentValue}")
 }
 
-class Calculator {
-    fun add(num1: Int, num2: Int): Int {
-        println("$num1 + $num2")
-        return num1 + num2
+class Calculator(initialValue: Int = 0) {
+    var currentValue = initialValue
+
+    fun add(number: Int): Int {
+        println("$currentValue + $number")
+        currentValue += number
+        return currentValue
     }
 
-    fun subtract(num1: Int, num2: Int): Int {
-        println("$num1 - $num2")
-        return num1 - num2
+    fun subtract(number: Int): Int {
+        println("$currentValue - $number")
+        currentValue -= number
+        return currentValue
     }
 
-    fun multiply(num1: Int, num2: Int): Int {
-        println("$num1 * $num2")
-        return num1 * num2
+    fun multiply(number: Int): Int {
+        println("$currentValue * $number")
+        currentValue *= number
+        return currentValue
     }
 
-    fun divide(num1: Int, num2: Int): Int {
-        println("$num1 / $num2")
-        return num1 / num2
+    fun divide(number: Int): Int {
+        println("$currentValue / $number")
+        currentValue /= number
+        return currentValue
     }
 }
